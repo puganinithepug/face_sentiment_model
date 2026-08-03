@@ -1,0 +1,594 @@
+{
+ "cells": [
+  {
+   "cell_type": "code",
+   "execution_count": 1,
+   "id": "316d8004",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-08-03T20:06:03.928762Z",
+     "iopub.status.busy": "2026-08-03T20:06:03.928439Z",
+     "iopub.status.idle": "2026-08-03T20:06:03.935569Z",
+     "shell.execute_reply": "2026-08-03T20:06:03.934942Z"
+    },
+    "papermill": {
+     "duration": 0.012444,
+     "end_time": "2026-08-03T20:06:03.936938+00:00",
+     "exception": false,
+     "start_time": "2026-08-03T20:06:03.924494+00:00",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "base = \"/kaggle/input/datasets/mstjebashazida/affectnet/archive (3)\""
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 2,
+   "id": "ef0505ab",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-08-03T20:06:03.941816Z",
+     "iopub.status.busy": "2026-08-03T20:06:03.941474Z",
+     "iopub.status.idle": "2026-08-03T20:06:03.958263Z",
+     "shell.execute_reply": "2026-08-03T20:06:03.957375Z"
+    },
+    "papermill": {
+     "duration": 0.021147,
+     "end_time": "2026-08-03T20:06:03.959836+00:00",
+     "exception": false,
+     "start_time": "2026-08-03T20:06:03.938689+00:00",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Train ['surprise', 'fear', 'neutral', 'sad', 'disgust', 'contempt', 'happy', 'anger']\n",
+      "Test ['surprise', 'fear', 'neutral', 'sad', 'disgust', 'Contempt', 'happy', 'Anger']\n"
+     ]
+    }
+   ],
+   "source": [
+    "import os\n",
+    "\n",
+    "for split in [\"Train\", \"Test\"]:\n",
+    "    split_dir = os.path.join(base, split)\n",
+    "    print(split, os.listdir(split_dir))\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 3,
+   "id": "b50e3002",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-08-03T20:06:03.964605Z",
+     "iopub.status.busy": "2026-08-03T20:06:03.964267Z",
+     "iopub.status.idle": "2026-08-03T20:06:05.632150Z",
+     "shell.execute_reply": "2026-08-03T20:06:05.630771Z"
+    },
+    "papermill": {
+     "duration": 1.672502,
+     "end_time": "2026-08-03T20:06:05.634061+00:00",
+     "exception": false,
+     "start_time": "2026-08-03T20:06:03.961559+00:00",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "                                                path     label  split\n",
+      "0  /kaggle/input/datasets/mstjebashazida/affectne...  surprise  Train\n",
+      "1  /kaggle/input/datasets/mstjebashazida/affectne...  surprise  Train\n",
+      "2  /kaggle/input/datasets/mstjebashazida/affectne...  surprise  Train\n",
+      "3  /kaggle/input/datasets/mstjebashazida/affectne...  surprise  Train\n",
+      "4  /kaggle/input/datasets/mstjebashazida/affectne...  surprise  Train\n",
+      "label\n",
+      "neutral     5126\n",
+      "happy       5044\n",
+      "sad         4675\n",
+      "surprise    4039\n",
+      "anger       3218\n",
+      "fear        3176\n",
+      "contempt    2871\n",
+      "disgust     2477\n",
+      "Name: count, dtype: int64\n"
+     ]
+    }
+   ],
+   "source": [
+    "#  folders are already labeled by emotion\n",
+    "# use for training\n",
+    "import pandas as pd\n",
+    "\n",
+    "rows = []\n",
+    "\n",
+    "for split in [\"Train\", \"Test\"]:\n",
+    "    split_dir = os.path.join(base, split)\n",
+    "    for emotion in os.listdir(split_dir):\n",
+    "        emo_dir = os.path.join(split_dir, emotion)\n",
+    "        if os.path.isdir(emo_dir):\n",
+    "            for fname in os.listdir(emo_dir):\n",
+    "                if fname.lower().endswith((\".jpg\", \".jpeg\", \".png\")):\n",
+    "                    rows.append({\n",
+    "                        \"path\": os.path.join(emo_dir, fname),\n",
+    "                        \"label\": emotion.lower(),\n",
+    "                        \"split\": split\n",
+    "                    })\n",
+    "\n",
+    "df = pd.DataFrame(rows)\n",
+    "\n",
+    "# normalize label names\n",
+    "df[\"label\"] = df[\"label\"].str.lower()\n",
+    "\n",
+    "print(df.head())\n",
+    "print(df[\"label\"].value_counts())"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 4,
+   "id": "3825b77b",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-08-03T20:06:05.639910Z",
+     "iopub.status.busy": "2026-08-03T20:06:05.639430Z",
+     "iopub.status.idle": "2026-08-03T20:06:07.503396Z",
+     "shell.execute_reply": "2026-08-03T20:06:07.501707Z"
+    },
+    "papermill": {
+     "duration": 1.869441,
+     "end_time": "2026-08-03T20:06:07.505524+00:00",
+     "exception": false,
+     "start_time": "2026-08-03T20:06:05.636083+00:00",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "# validation split from train data\n",
+    "\n",
+    "from sklearn.model_selection import train_test_split\n",
+    "\n",
+    "train_df = df[df[\"split\"] == \"Train\"].copy()\n",
+    "test_df = df[df[\"split\"] == \"Test\"].copy()\n",
+    "\n",
+    "train_df, val_df = train_test_split(\n",
+    "    train_df,\n",
+    "    test_size=0.2,\n",
+    "    stratify=train_df[\"label\"],\n",
+    "    random_state=42\n",
+    ")\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 5,
+   "id": "cea1f91f",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-08-03T20:06:07.510490Z",
+     "iopub.status.busy": "2026-08-03T20:06:07.510033Z",
+     "iopub.status.idle": "2026-08-03T20:06:22.777863Z",
+     "shell.execute_reply": "2026-08-03T20:06:22.776870Z"
+    },
+    "papermill": {
+     "duration": 15.271845,
+     "end_time": "2026-08-03T20:06:22.779223+00:00",
+     "exception": false,
+     "start_time": "2026-08-03T20:06:07.507378+00:00",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stderr",
+     "output_type": "stream",
+     "text": [
+      "2026-08-03 20:06:22.692856: E external/local_xla/xla/stream_executor/cuda/cuda_platform.cc:51] failed call to cuInit: INTERNAL: CUDA error: Failed call to cuInit: UNKNOWN ERROR (303)\n"
+     ]
+    }
+   ],
+   "source": [
+    "# read image files and converts them into tensors\n",
+    "# decodes, resizes, scales values\n",
+    "import tensorflow as tf\n",
+    "import numpy as np\n",
+    "\n",
+    "IMG_SIZE = (224, 224)\n",
+    "BATCH_SIZE = 32\n",
+    "\n",
+    "label_names = sorted(train_df[\"label\"].unique())\n",
+    "label_map = {name: i for i, name in enumerate(label_names)}\n",
+    "\n",
+    "train_df[\"label_id\"] = train_df[\"label\"].map(label_map)\n",
+    "val_df[\"label_id\"] = val_df[\"label\"].map(label_map)\n",
+    "\n",
+    "def load_image(path, label_id):\n",
+    "    img = tf.io.read_file(path)\n",
+    "    img = tf.image.decode_jpeg(img, channels=3)\n",
+    "    img = tf.image.resize(img, IMG_SIZE)\n",
+    "    img = img / 255.0\n",
+    "    return img, label_id\n",
+    "\n",
+    "# batched training \n",
+    "# shuffling for generalization \n",
+    "def make_ds(dataframe, shuffle=True):\n",
+    "    ds = tf.data.Dataset.from_tensor_slices(\n",
+    "        (dataframe[\"path\"].values, dataframe[\"label_id\"].values)\n",
+    "    )\n",
+    "    ds = ds.map(load_image, num_parallel_calls=tf.data.AUTOTUNE)\n",
+    "    if shuffle:\n",
+    "        ds = ds.shuffle(1000)\n",
+    "    ds = ds.batch(BATCH_SIZE).prefetch(tf.data.AUTOTUNE)\n",
+    "    return ds\n",
+    "\n",
+    "train_ds = make_ds(train_df)\n",
+    "val_ds = make_ds(val_df, shuffle=False)"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 6,
+   "id": "d7424363",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-08-03T20:06:22.784072Z",
+     "iopub.status.busy": "2026-08-03T20:06:22.783593Z",
+     "iopub.status.idle": "2026-08-03T20:06:23.893058Z",
+     "shell.execute_reply": "2026-08-03T20:06:23.892445Z"
+    },
+    "papermill": {
+     "duration": 1.113402,
+     "end_time": "2026-08-03T20:06:23.894332+00:00",
+     "exception": false,
+     "start_time": "2026-08-03T20:06:22.780930+00:00",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "data": {
+      "text/html": [
+       "<pre style=\"white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace\"><span style=\"font-weight: bold\">Model: \"functional\"</span>\n",
+       "</pre>\n"
+      ],
+      "text/plain": [
+       "\u001b[1mModel: \"functional\"\u001b[0m\n"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "text/html": [
+       "<pre style=\"white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace\">┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓\n",
+       "┃<span style=\"font-weight: bold\"> Layer (type)                    </span>┃<span style=\"font-weight: bold\"> Output Shape           </span>┃<span style=\"font-weight: bold\">       Param # </span>┃\n",
+       "┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩\n",
+       "│ input_layer_1 (<span style=\"color: #0087ff; text-decoration-color: #0087ff\">InputLayer</span>)      │ (<span style=\"color: #00d7ff; text-decoration-color: #00d7ff\">None</span>, <span style=\"color: #00af00; text-decoration-color: #00af00\">224</span>, <span style=\"color: #00af00; text-decoration-color: #00af00\">224</span>, <span style=\"color: #00af00; text-decoration-color: #00af00\">3</span>)    │             <span style=\"color: #00af00; text-decoration-color: #00af00\">0</span> │\n",
+       "├─────────────────────────────────┼────────────────────────┼───────────────┤\n",
+       "│ multiply (<span style=\"color: #0087ff; text-decoration-color: #0087ff\">Multiply</span>)             │ (<span style=\"color: #00d7ff; text-decoration-color: #00d7ff\">None</span>, <span style=\"color: #00af00; text-decoration-color: #00af00\">224</span>, <span style=\"color: #00af00; text-decoration-color: #00af00\">224</span>, <span style=\"color: #00af00; text-decoration-color: #00af00\">3</span>)    │             <span style=\"color: #00af00; text-decoration-color: #00af00\">0</span> │\n",
+       "├─────────────────────────────────┼────────────────────────┼───────────────┤\n",
+       "│ true_divide (<span style=\"color: #0087ff; text-decoration-color: #0087ff\">TrueDivide</span>)        │ (<span style=\"color: #00d7ff; text-decoration-color: #00d7ff\">None</span>, <span style=\"color: #00af00; text-decoration-color: #00af00\">224</span>, <span style=\"color: #00af00; text-decoration-color: #00af00\">224</span>, <span style=\"color: #00af00; text-decoration-color: #00af00\">3</span>)    │             <span style=\"color: #00af00; text-decoration-color: #00af00\">0</span> │\n",
+       "├─────────────────────────────────┼────────────────────────┼───────────────┤\n",
+       "│ subtract (<span style=\"color: #0087ff; text-decoration-color: #0087ff\">Subtract</span>)             │ (<span style=\"color: #00d7ff; text-decoration-color: #00d7ff\">None</span>, <span style=\"color: #00af00; text-decoration-color: #00af00\">224</span>, <span style=\"color: #00af00; text-decoration-color: #00af00\">224</span>, <span style=\"color: #00af00; text-decoration-color: #00af00\">3</span>)    │             <span style=\"color: #00af00; text-decoration-color: #00af00\">0</span> │\n",
+       "├─────────────────────────────────┼────────────────────────┼───────────────┤\n",
+       "│ mobilenetv2_1.00_224            │ (<span style=\"color: #00d7ff; text-decoration-color: #00d7ff\">None</span>, <span style=\"color: #00af00; text-decoration-color: #00af00\">7</span>, <span style=\"color: #00af00; text-decoration-color: #00af00\">7</span>, <span style=\"color: #00af00; text-decoration-color: #00af00\">1280</span>)     │     <span style=\"color: #00af00; text-decoration-color: #00af00\">2,257,984</span> │\n",
+       "│ (<span style=\"color: #0087ff; text-decoration-color: #0087ff\">Functional</span>)                    │                        │               │\n",
+       "├─────────────────────────────────┼────────────────────────┼───────────────┤\n",
+       "│ global_average_pooling2d        │ (<span style=\"color: #00d7ff; text-decoration-color: #00d7ff\">None</span>, <span style=\"color: #00af00; text-decoration-color: #00af00\">1280</span>)           │             <span style=\"color: #00af00; text-decoration-color: #00af00\">0</span> │\n",
+       "│ (<span style=\"color: #0087ff; text-decoration-color: #0087ff\">GlobalAveragePooling2D</span>)        │                        │               │\n",
+       "├─────────────────────────────────┼────────────────────────┼───────────────┤\n",
+       "│ dense (<span style=\"color: #0087ff; text-decoration-color: #0087ff\">Dense</span>)                   │ (<span style=\"color: #00d7ff; text-decoration-color: #00d7ff\">None</span>, <span style=\"color: #00af00; text-decoration-color: #00af00\">256</span>)            │       <span style=\"color: #00af00; text-decoration-color: #00af00\">327,936</span> │\n",
+       "├─────────────────────────────────┼────────────────────────┼───────────────┤\n",
+       "│ batch_normalization             │ (<span style=\"color: #00d7ff; text-decoration-color: #00d7ff\">None</span>, <span style=\"color: #00af00; text-decoration-color: #00af00\">256</span>)            │         <span style=\"color: #00af00; text-decoration-color: #00af00\">1,024</span> │\n",
+       "│ (<span style=\"color: #0087ff; text-decoration-color: #0087ff\">BatchNormalization</span>)            │                        │               │\n",
+       "├─────────────────────────────────┼────────────────────────┼───────────────┤\n",
+       "│ dropout (<span style=\"color: #0087ff; text-decoration-color: #0087ff\">Dropout</span>)               │ (<span style=\"color: #00d7ff; text-decoration-color: #00d7ff\">None</span>, <span style=\"color: #00af00; text-decoration-color: #00af00\">256</span>)            │             <span style=\"color: #00af00; text-decoration-color: #00af00\">0</span> │\n",
+       "├─────────────────────────────────┼────────────────────────┼───────────────┤\n",
+       "│ dense_1 (<span style=\"color: #0087ff; text-decoration-color: #0087ff\">Dense</span>)                 │ (<span style=\"color: #00d7ff; text-decoration-color: #00d7ff\">None</span>, <span style=\"color: #00af00; text-decoration-color: #00af00\">128</span>)            │        <span style=\"color: #00af00; text-decoration-color: #00af00\">32,896</span> │\n",
+       "├─────────────────────────────────┼────────────────────────┼───────────────┤\n",
+       "│ batch_normalization_1           │ (<span style=\"color: #00d7ff; text-decoration-color: #00d7ff\">None</span>, <span style=\"color: #00af00; text-decoration-color: #00af00\">128</span>)            │           <span style=\"color: #00af00; text-decoration-color: #00af00\">512</span> │\n",
+       "│ (<span style=\"color: #0087ff; text-decoration-color: #0087ff\">BatchNormalization</span>)            │                        │               │\n",
+       "├─────────────────────────────────┼────────────────────────┼───────────────┤\n",
+       "│ dropout_1 (<span style=\"color: #0087ff; text-decoration-color: #0087ff\">Dropout</span>)             │ (<span style=\"color: #00d7ff; text-decoration-color: #00d7ff\">None</span>, <span style=\"color: #00af00; text-decoration-color: #00af00\">128</span>)            │             <span style=\"color: #00af00; text-decoration-color: #00af00\">0</span> │\n",
+       "├─────────────────────────────────┼────────────────────────┼───────────────┤\n",
+       "│ dense_2 (<span style=\"color: #0087ff; text-decoration-color: #0087ff\">Dense</span>)                 │ (<span style=\"color: #00d7ff; text-decoration-color: #00d7ff\">None</span>, <span style=\"color: #00af00; text-decoration-color: #00af00\">8</span>)              │         <span style=\"color: #00af00; text-decoration-color: #00af00\">1,032</span> │\n",
+       "└─────────────────────────────────┴────────────────────────┴───────────────┘\n",
+       "</pre>\n"
+      ],
+      "text/plain": [
+       "┏━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━━━━━━━━━━┳━━━━━━━━━━━━━━━┓\n",
+       "┃\u001b[1m \u001b[0m\u001b[1mLayer (type)                   \u001b[0m\u001b[1m \u001b[0m┃\u001b[1m \u001b[0m\u001b[1mOutput Shape          \u001b[0m\u001b[1m \u001b[0m┃\u001b[1m \u001b[0m\u001b[1m      Param #\u001b[0m\u001b[1m \u001b[0m┃\n",
+       "┡━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━━━━━━━━━━╇━━━━━━━━━━━━━━━┩\n",
+       "│ input_layer_1 (\u001b[38;5;33mInputLayer\u001b[0m)      │ (\u001b[38;5;45mNone\u001b[0m, \u001b[38;5;34m224\u001b[0m, \u001b[38;5;34m224\u001b[0m, \u001b[38;5;34m3\u001b[0m)    │             \u001b[38;5;34m0\u001b[0m │\n",
+       "├─────────────────────────────────┼────────────────────────┼───────────────┤\n",
+       "│ multiply (\u001b[38;5;33mMultiply\u001b[0m)             │ (\u001b[38;5;45mNone\u001b[0m, \u001b[38;5;34m224\u001b[0m, \u001b[38;5;34m224\u001b[0m, \u001b[38;5;34m3\u001b[0m)    │             \u001b[38;5;34m0\u001b[0m │\n",
+       "├─────────────────────────────────┼────────────────────────┼───────────────┤\n",
+       "│ true_divide (\u001b[38;5;33mTrueDivide\u001b[0m)        │ (\u001b[38;5;45mNone\u001b[0m, \u001b[38;5;34m224\u001b[0m, \u001b[38;5;34m224\u001b[0m, \u001b[38;5;34m3\u001b[0m)    │             \u001b[38;5;34m0\u001b[0m │\n",
+       "├─────────────────────────────────┼────────────────────────┼───────────────┤\n",
+       "│ subtract (\u001b[38;5;33mSubtract\u001b[0m)             │ (\u001b[38;5;45mNone\u001b[0m, \u001b[38;5;34m224\u001b[0m, \u001b[38;5;34m224\u001b[0m, \u001b[38;5;34m3\u001b[0m)    │             \u001b[38;5;34m0\u001b[0m │\n",
+       "├─────────────────────────────────┼────────────────────────┼───────────────┤\n",
+       "│ mobilenetv2_1.00_224            │ (\u001b[38;5;45mNone\u001b[0m, \u001b[38;5;34m7\u001b[0m, \u001b[38;5;34m7\u001b[0m, \u001b[38;5;34m1280\u001b[0m)     │     \u001b[38;5;34m2,257,984\u001b[0m │\n",
+       "│ (\u001b[38;5;33mFunctional\u001b[0m)                    │                        │               │\n",
+       "├─────────────────────────────────┼────────────────────────┼───────────────┤\n",
+       "│ global_average_pooling2d        │ (\u001b[38;5;45mNone\u001b[0m, \u001b[38;5;34m1280\u001b[0m)           │             \u001b[38;5;34m0\u001b[0m │\n",
+       "│ (\u001b[38;5;33mGlobalAveragePooling2D\u001b[0m)        │                        │               │\n",
+       "├─────────────────────────────────┼────────────────────────┼───────────────┤\n",
+       "│ dense (\u001b[38;5;33mDense\u001b[0m)                   │ (\u001b[38;5;45mNone\u001b[0m, \u001b[38;5;34m256\u001b[0m)            │       \u001b[38;5;34m327,936\u001b[0m │\n",
+       "├─────────────────────────────────┼────────────────────────┼───────────────┤\n",
+       "│ batch_normalization             │ (\u001b[38;5;45mNone\u001b[0m, \u001b[38;5;34m256\u001b[0m)            │         \u001b[38;5;34m1,024\u001b[0m │\n",
+       "│ (\u001b[38;5;33mBatchNormalization\u001b[0m)            │                        │               │\n",
+       "├─────────────────────────────────┼────────────────────────┼───────────────┤\n",
+       "│ dropout (\u001b[38;5;33mDropout\u001b[0m)               │ (\u001b[38;5;45mNone\u001b[0m, \u001b[38;5;34m256\u001b[0m)            │             \u001b[38;5;34m0\u001b[0m │\n",
+       "├─────────────────────────────────┼────────────────────────┼───────────────┤\n",
+       "│ dense_1 (\u001b[38;5;33mDense\u001b[0m)                 │ (\u001b[38;5;45mNone\u001b[0m, \u001b[38;5;34m128\u001b[0m)            │        \u001b[38;5;34m32,896\u001b[0m │\n",
+       "├─────────────────────────────────┼────────────────────────┼───────────────┤\n",
+       "│ batch_normalization_1           │ (\u001b[38;5;45mNone\u001b[0m, \u001b[38;5;34m128\u001b[0m)            │           \u001b[38;5;34m512\u001b[0m │\n",
+       "│ (\u001b[38;5;33mBatchNormalization\u001b[0m)            │                        │               │\n",
+       "├─────────────────────────────────┼────────────────────────┼───────────────┤\n",
+       "│ dropout_1 (\u001b[38;5;33mDropout\u001b[0m)             │ (\u001b[38;5;45mNone\u001b[0m, \u001b[38;5;34m128\u001b[0m)            │             \u001b[38;5;34m0\u001b[0m │\n",
+       "├─────────────────────────────────┼────────────────────────┼───────────────┤\n",
+       "│ dense_2 (\u001b[38;5;33mDense\u001b[0m)                 │ (\u001b[38;5;45mNone\u001b[0m, \u001b[38;5;34m8\u001b[0m)              │         \u001b[38;5;34m1,032\u001b[0m │\n",
+       "└─────────────────────────────────┴────────────────────────┴───────────────┘\n"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "text/html": [
+       "<pre style=\"white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace\"><span style=\"font-weight: bold\"> Total params: </span><span style=\"color: #00af00; text-decoration-color: #00af00\">2,621,384</span> (10.00 MB)\n",
+       "</pre>\n"
+      ],
+      "text/plain": [
+       "\u001b[1m Total params: \u001b[0m\u001b[38;5;34m2,621,384\u001b[0m (10.00 MB)\n"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "text/html": [
+       "<pre style=\"white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace\"><span style=\"font-weight: bold\"> Trainable params: </span><span style=\"color: #00af00; text-decoration-color: #00af00\">2,430,344</span> (9.27 MB)\n",
+       "</pre>\n"
+      ],
+      "text/plain": [
+       "\u001b[1m Trainable params: \u001b[0m\u001b[38;5;34m2,430,344\u001b[0m (9.27 MB)\n"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    },
+    {
+     "data": {
+      "text/html": [
+       "<pre style=\"white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace\"><span style=\"font-weight: bold\"> Non-trainable params: </span><span style=\"color: #00af00; text-decoration-color: #00af00\">191,040</span> (746.25 KB)\n",
+       "</pre>\n"
+      ],
+      "text/plain": [
+       "\u001b[1m Non-trainable params: \u001b[0m\u001b[38;5;34m191,040\u001b[0m (746.25 KB)\n"
+      ]
+     },
+     "metadata": {},
+     "output_type": "display_data"
+    }
+   ],
+   "source": [
+    "# tranfer learning with MobileNetV2\n",
+    "# build CNN\n",
+    "# early layers - edges\n",
+    "# deeper layers - feature nuances\n",
+    "# final - probabilities\n",
+    "from tensorflow import keras\n",
+    "from tensorflow.keras import layers\n",
+    "\n",
+    "weights_path = \"/kaggle/input/datasets/darvor/mobilenetv2-weights/mobilenet_v2_weights_tf_dim_ordering_tf_kernels_1.0_224_no_top.h5\"\n",
+    "\n",
+    "base_model = keras.applications.MobileNetV2(\n",
+    "    input_shape=(224, 224, 3),\n",
+    "    include_top=False,\n",
+    "    weights=None\n",
+    ")\n",
+    "base_model.load_weights(weights_path)\n",
+    "base_model.trainable = True\n",
+    "# len(base_model.layers) is about 155\n",
+    "for layer in base_model.layers[:-80]:  # Keep early layers frozen\n",
+    "    layer.trainable = False\n",
+    "\n",
+    "inputs = keras.Input(shape=(224, 224, 3))\n",
+    "x = keras.applications.mobilenet_v2.preprocess_input(inputs * 255.0)\n",
+    "x = base_model(x, training=False) # training mode in inference off\n",
+    "x = layers.GlobalAveragePooling2D()(x)\n",
+    "x = layers.Dense(256, activation='relu')(x)\n",
+    "x = layers.BatchNormalization()(x)\n",
+    "x = layers.Dropout(0.4)(x)\n",
+    "x = layers.Dense(128, activation='relu')(x)\n",
+    "x = layers.BatchNormalization()(x)\n",
+    "x = layers.Dropout(0.3)(x)\n",
+    "outputs = layers.Dense(len(label_names), activation=\"softmax\")(x)\n",
+    "\n",
+    "\n",
+    "model = keras.Model(inputs, outputs)\n",
+    "\n",
+    "optimizer = keras.optimizers.Adam(learning_rate=1e-5)\n",
+    "\n",
+    "model.compile(\n",
+    "    optimizer=optimizer,\n",
+    "    loss=\"sparse_categorical_crossentropy\",\n",
+    "    metrics=[\"accuracy\"]\n",
+    ")\n",
+    "model.summary()\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 7,
+   "id": "3532bd1d",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-08-03T20:06:23.899764Z",
+     "iopub.status.busy": "2026-08-03T20:06:23.899497Z",
+     "iopub.status.idle": "2026-08-03T22:28:32.586715Z",
+     "shell.execute_reply": "2026-08-03T22:28:32.585555Z"
+    },
+    "papermill": {
+     "duration": 8529.083472,
+     "end_time": "2026-08-03T22:28:32.980191+00:00",
+     "exception": false,
+     "start_time": "2026-08-03T20:06:23.896719+00:00",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [
+    {
+     "name": "stdout",
+     "output_type": "stream",
+     "text": [
+      "Epoch 1/20\n",
+      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m418s\u001b[0m 999ms/step - accuracy: 0.1885 - loss: 2.6319 - val_accuracy: 0.2160 - val_loss: 2.3093\n",
+      "Epoch 2/20\n",
+      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m483s\u001b[0m 1s/step - accuracy: 0.2853 - loss: 2.1521 - val_accuracy: 0.2762 - val_loss: 2.1016\n",
+      "Epoch 3/20\n",
+      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m400s\u001b[0m 991ms/step - accuracy: 0.3509 - loss: 1.8790 - val_accuracy: 0.3696 - val_loss: 1.7994\n",
+      "Epoch 4/20\n",
+      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m433s\u001b[0m 1s/step - accuracy: 0.3941 - loss: 1.7222 - val_accuracy: 0.4280 - val_loss: 1.5639\n",
+      "Epoch 5/20\n",
+      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m396s\u001b[0m 981ms/step - accuracy: 0.4281 - loss: 1.5992 - val_accuracy: 0.4721 - val_loss: 1.4160\n",
+      "Epoch 6/20\n",
+      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m441s\u001b[0m 978ms/step - accuracy: 0.4614 - loss: 1.4960 - val_accuracy: 0.4888 - val_loss: 1.3409\n",
+      "Epoch 7/20\n",
+      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m412s\u001b[0m 1s/step - accuracy: 0.4817 - loss: 1.4257 - val_accuracy: 0.5130 - val_loss: 1.2922\n",
+      "Epoch 8/20\n",
+      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m410s\u001b[0m 1s/step - accuracy: 0.5092 - loss: 1.3479 - val_accuracy: 0.5295 - val_loss: 1.2593\n",
+      "Epoch 9/20\n",
+      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m449s\u001b[0m 1s/step - accuracy: 0.5300 - loss: 1.2880 - val_accuracy: 0.5397 - val_loss: 1.2276\n",
+      "Epoch 10/20\n",
+      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m413s\u001b[0m 1s/step - accuracy: 0.5407 - loss: 1.2447 - val_accuracy: 0.5438 - val_loss: 1.2108\n",
+      "Epoch 11/20\n",
+      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m415s\u001b[0m 1s/step - accuracy: 0.5647 - loss: 1.1866 - val_accuracy: 0.5500 - val_loss: 1.1923\n",
+      "Epoch 12/20\n",
+      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m445s\u001b[0m 1s/step - accuracy: 0.5791 - loss: 1.1477 - val_accuracy: 0.5509 - val_loss: 1.1831\n",
+      "Epoch 13/20\n",
+      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m415s\u001b[0m 1s/step - accuracy: 0.5925 - loss: 1.0970 - val_accuracy: 0.5642 - val_loss: 1.1680\n",
+      "Epoch 14/20\n",
+      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m418s\u001b[0m 1s/step - accuracy: 0.6117 - loss: 1.0543 - val_accuracy: 0.5673 - val_loss: 1.1601\n",
+      "Epoch 15/20\n",
+      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m451s\u001b[0m 1s/step - accuracy: 0.6291 - loss: 1.0189 - val_accuracy: 0.5720 - val_loss: 1.1496\n",
+      "Epoch 16/20\n",
+      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m451s\u001b[0m 1s/step - accuracy: 0.6346 - loss: 0.9946 - val_accuracy: 0.5729 - val_loss: 1.1486\n",
+      "Epoch 17/20\n",
+      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m417s\u001b[0m 1s/step - accuracy: 0.6476 - loss: 0.9569 - val_accuracy: 0.5810 - val_loss: 1.1295\n",
+      "Epoch 18/20\n",
+      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m408s\u001b[0m 1s/step - accuracy: 0.6712 - loss: 0.8983 - val_accuracy: 0.5872 - val_loss: 1.1257\n",
+      "Epoch 19/20\n",
+      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m437s\u001b[0m 1s/step - accuracy: 0.6799 - loss: 0.8704 - val_accuracy: 0.5940 - val_loss: 1.1255\n",
+      "Epoch 20/20\n",
+      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m416s\u001b[0m 1s/step - accuracy: 0.6922 - loss: 0.8442 - val_accuracy: 0.6002 - val_loss: 1.1198\n"
+     ]
+    }
+   ],
+   "source": [
+    "# model sees batches of images\n",
+    "# predicts emotion labels \n",
+    "# loss measures wrong predictions\n",
+    "# gradient for updating weights\n",
+    "history = model.fit(\n",
+    "    train_ds,\n",
+    "    validation_data=val_ds,\n",
+    "    epochs=20\n",
+    ")\n"
+   ]
+  },
+  {
+   "cell_type": "code",
+   "execution_count": 8,
+   "id": "84149d77",
+   "metadata": {
+    "execution": {
+     "iopub.execute_input": "2026-08-03T22:28:33.580216Z",
+     "iopub.status.busy": "2026-08-03T22:28:33.579783Z",
+     "iopub.status.idle": "2026-08-03T22:28:34.120923Z",
+     "shell.execute_reply": "2026-08-03T22:28:34.119544Z"
+    },
+    "papermill": {
+     "duration": 0.844997,
+     "end_time": "2026-08-03T22:28:34.122948+00:00",
+     "exception": false,
+     "start_time": "2026-08-03T22:28:33.277951+00:00",
+     "status": "completed"
+    },
+    "tags": []
+   },
+   "outputs": [],
+   "source": [
+    "# preserve model\n",
+    "model.save(\"/kaggle/working/emotion_model.keras\")\n",
+    "\n",
+    "import json\n",
+    "with open(\"/kaggle/working/label_map.json\", \"w\") as f:\n",
+    "    json.dump(label_map, f)\n"
+   ]
+  }
+ ],
+ "metadata": {
+  "kaggle": {
+   "accelerator": "none",
+   "dataSources": [],
+   "dockerImageVersionId": 28755,
+   "isGpuEnabled": false,
+   "isInternetEnabled": false,
+   "language": "python",
+   "sourceType": "notebook"
+  },
+  "kernelspec": {
+   "display_name": "Python 3",
+   "language": "python",
+   "name": "python3"
+  },
+  "language_info": {
+   "codemirror_mode": {
+    "name": "ipython",
+    "version": 3
+   },
+   "file_extension": ".py",
+   "mimetype": "text/x-python",
+   "name": "python",
+   "nbconvert_exporter": "python",
+   "pygments_lexer": "ipython3",
+   "version": "3.12.13"
+  },
+  "papermill": {
+   "default_parameters": {},
+   "duration": 8556.790142,
+   "end_time": "2026-08-03T22:28:38.072997+00:00",
+   "environment_variables": {},
+   "exception": null,
+   "input_path": "__notebook__.ipynb",
+   "output_path": "__notebook__.ipynb",
+   "parameters": {},
+   "start_time": "2026-08-03T20:06:01.282855+00:00",
+   "version": "2.7.0"
+  }
+ },
+ "nbformat": 4,
+ "nbformat_minor": 5
+}
