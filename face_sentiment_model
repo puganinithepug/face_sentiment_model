@@ -3,19 +3,19 @@
   {
    "cell_type": "code",
    "execution_count": 1,
-   "id": "316d8004",
+   "id": "5c233237",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2026-08-03T20:06:03.928762Z",
-     "iopub.status.busy": "2026-08-03T20:06:03.928439Z",
-     "iopub.status.idle": "2026-08-03T20:06:03.935569Z",
-     "shell.execute_reply": "2026-08-03T20:06:03.934942Z"
+     "iopub.execute_input": "2026-08-04T00:13:18.133174Z",
+     "iopub.status.busy": "2026-08-04T00:13:18.132844Z",
+     "iopub.status.idle": "2026-08-04T00:13:18.140158Z",
+     "shell.execute_reply": "2026-08-04T00:13:18.139347Z"
     },
     "papermill": {
-     "duration": 0.012444,
-     "end_time": "2026-08-03T20:06:03.936938+00:00",
+     "duration": 0.013522,
+     "end_time": "2026-08-04T00:13:18.141991+00:00",
      "exception": false,
-     "start_time": "2026-08-03T20:06:03.924494+00:00",
+     "start_time": "2026-08-04T00:13:18.128469+00:00",
      "status": "completed"
     },
     "tags": []
@@ -28,19 +28,19 @@
   {
    "cell_type": "code",
    "execution_count": 2,
-   "id": "ef0505ab",
+   "id": "91d3e13c",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2026-08-03T20:06:03.941816Z",
-     "iopub.status.busy": "2026-08-03T20:06:03.941474Z",
-     "iopub.status.idle": "2026-08-03T20:06:03.958263Z",
-     "shell.execute_reply": "2026-08-03T20:06:03.957375Z"
+     "iopub.execute_input": "2026-08-04T00:13:18.148539Z",
+     "iopub.status.busy": "2026-08-04T00:13:18.147635Z",
+     "iopub.status.idle": "2026-08-04T00:13:18.206488Z",
+     "shell.execute_reply": "2026-08-04T00:13:18.205412Z"
     },
     "papermill": {
-     "duration": 0.021147,
-     "end_time": "2026-08-03T20:06:03.959836+00:00",
+     "duration": 0.064355,
+     "end_time": "2026-08-04T00:13:18.208489+00:00",
      "exception": false,
-     "start_time": "2026-08-03T20:06:03.938689+00:00",
+     "start_time": "2026-08-04T00:13:18.144134+00:00",
      "status": "completed"
     },
     "tags": []
@@ -66,19 +66,19 @@
   {
    "cell_type": "code",
    "execution_count": 3,
-   "id": "b50e3002",
+   "id": "f677a7b6",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2026-08-03T20:06:03.964605Z",
-     "iopub.status.busy": "2026-08-03T20:06:03.964267Z",
-     "iopub.status.idle": "2026-08-03T20:06:05.632150Z",
-     "shell.execute_reply": "2026-08-03T20:06:05.630771Z"
+     "iopub.execute_input": "2026-08-04T00:13:18.214306Z",
+     "iopub.status.busy": "2026-08-04T00:13:18.214003Z",
+     "iopub.status.idle": "2026-08-04T00:13:20.074290Z",
+     "shell.execute_reply": "2026-08-04T00:13:20.073168Z"
     },
     "papermill": {
-     "duration": 1.672502,
-     "end_time": "2026-08-03T20:06:05.634061+00:00",
+     "duration": 1.865884,
+     "end_time": "2026-08-04T00:13:20.076438+00:00",
      "exception": false,
-     "start_time": "2026-08-03T20:06:03.961559+00:00",
+     "start_time": "2026-08-04T00:13:18.210554+00:00",
      "status": "completed"
     },
     "tags": []
@@ -139,19 +139,19 @@
   {
    "cell_type": "code",
    "execution_count": 4,
-   "id": "3825b77b",
+   "id": "58b29e13",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2026-08-03T20:06:05.639910Z",
-     "iopub.status.busy": "2026-08-03T20:06:05.639430Z",
-     "iopub.status.idle": "2026-08-03T20:06:07.503396Z",
-     "shell.execute_reply": "2026-08-03T20:06:07.501707Z"
+     "iopub.execute_input": "2026-08-04T00:13:20.082848Z",
+     "iopub.status.busy": "2026-08-04T00:13:20.082385Z",
+     "iopub.status.idle": "2026-08-04T00:13:21.986669Z",
+     "shell.execute_reply": "2026-08-04T00:13:21.985717Z"
     },
     "papermill": {
-     "duration": 1.869441,
-     "end_time": "2026-08-03T20:06:07.505524+00:00",
+     "duration": 1.910191,
+     "end_time": "2026-08-04T00:13:21.988953+00:00",
      "exception": false,
-     "start_time": "2026-08-03T20:06:05.636083+00:00",
+     "start_time": "2026-08-04T00:13:20.078762+00:00",
      "status": "completed"
     },
     "tags": []
@@ -176,19 +176,19 @@
   {
    "cell_type": "code",
    "execution_count": 5,
-   "id": "cea1f91f",
+   "id": "394471e3",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2026-08-03T20:06:07.510490Z",
-     "iopub.status.busy": "2026-08-03T20:06:07.510033Z",
-     "iopub.status.idle": "2026-08-03T20:06:22.777863Z",
-     "shell.execute_reply": "2026-08-03T20:06:22.776870Z"
+     "iopub.execute_input": "2026-08-04T00:13:21.995557Z",
+     "iopub.status.busy": "2026-08-04T00:13:21.995058Z",
+     "iopub.status.idle": "2026-08-04T00:13:38.895807Z",
+     "shell.execute_reply": "2026-08-04T00:13:38.894709Z"
     },
     "papermill": {
-     "duration": 15.271845,
-     "end_time": "2026-08-03T20:06:22.779223+00:00",
+     "duration": 16.90653,
+     "end_time": "2026-08-04T00:13:38.897865+00:00",
      "exception": false,
-     "start_time": "2026-08-03T20:06:07.507378+00:00",
+     "start_time": "2026-08-04T00:13:21.991335+00:00",
      "status": "completed"
     },
     "tags": []
@@ -198,7 +198,7 @@
      "name": "stderr",
      "output_type": "stream",
      "text": [
-      "2026-08-03 20:06:22.692856: E external/local_xla/xla/stream_executor/cuda/cuda_platform.cc:51] failed call to cuInit: INTERNAL: CUDA error: Failed call to cuInit: UNKNOWN ERROR (303)\n"
+      "2026-08-04 00:13:38.782765: E external/local_xla/xla/stream_executor/cuda/cuda_platform.cc:51] failed call to cuInit: INTERNAL: CUDA error: Failed call to cuInit: UNKNOWN ERROR (303)\n"
      ]
     }
    ],
@@ -243,19 +243,19 @@
   {
    "cell_type": "code",
    "execution_count": 6,
-   "id": "d7424363",
+   "id": "a6f4e001",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2026-08-03T20:06:22.784072Z",
-     "iopub.status.busy": "2026-08-03T20:06:22.783593Z",
-     "iopub.status.idle": "2026-08-03T20:06:23.893058Z",
-     "shell.execute_reply": "2026-08-03T20:06:23.892445Z"
+     "iopub.execute_input": "2026-08-04T00:13:38.904019Z",
+     "iopub.status.busy": "2026-08-04T00:13:38.903425Z",
+     "iopub.status.idle": "2026-08-04T00:13:40.447184Z",
+     "shell.execute_reply": "2026-08-04T00:13:40.446252Z"
     },
     "papermill": {
-     "duration": 1.113402,
-     "end_time": "2026-08-03T20:06:23.894332+00:00",
+     "duration": 1.549099,
+     "end_time": "2026-08-04T00:13:40.449119+00:00",
      "exception": false,
-     "start_time": "2026-08-03T20:06:22.780930+00:00",
+     "start_time": "2026-08-04T00:13:38.900020+00:00",
      "status": "completed"
     },
     "tags": []
@@ -367,11 +367,11 @@
     {
      "data": {
       "text/html": [
-       "<pre style=\"white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace\"><span style=\"font-weight: bold\"> Trainable params: </span><span style=\"color: #00af00; text-decoration-color: #00af00\">2,430,344</span> (9.27 MB)\n",
+       "<pre style=\"white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace\"><span style=\"font-weight: bold\"> Trainable params: </span><span style=\"color: #00af00; text-decoration-color: #00af00\">2,318,344</span> (8.84 MB)\n",
        "</pre>\n"
       ],
       "text/plain": [
-       "\u001b[1m Trainable params: \u001b[0m\u001b[38;5;34m2,430,344\u001b[0m (9.27 MB)\n"
+       "\u001b[1m Trainable params: \u001b[0m\u001b[38;5;34m2,318,344\u001b[0m (8.84 MB)\n"
       ]
      },
      "metadata": {},
@@ -380,11 +380,11 @@
     {
      "data": {
       "text/html": [
-       "<pre style=\"white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace\"><span style=\"font-weight: bold\"> Non-trainable params: </span><span style=\"color: #00af00; text-decoration-color: #00af00\">191,040</span> (746.25 KB)\n",
+       "<pre style=\"white-space:pre;overflow-x:auto;line-height:normal;font-family:Menlo,'DejaVu Sans Mono',consolas,'Courier New',monospace\"><span style=\"font-weight: bold\"> Non-trainable params: </span><span style=\"color: #00af00; text-decoration-color: #00af00\">303,040</span> (1.16 MB)\n",
        "</pre>\n"
       ],
       "text/plain": [
-       "\u001b[1m Non-trainable params: \u001b[0m\u001b[38;5;34m191,040\u001b[0m (746.25 KB)\n"
+       "\u001b[1m Non-trainable params: \u001b[0m\u001b[38;5;34m303,040\u001b[0m (1.16 MB)\n"
       ]
      },
      "metadata": {},
@@ -410,7 +410,7 @@
     "base_model.load_weights(weights_path)\n",
     "base_model.trainable = True\n",
     "# len(base_model.layers) is about 155\n",
-    "for layer in base_model.layers[:-80]:  # Keep early layers frozen\n",
+    "for layer in base_model.layers[:-60]:  # Keep early layers frozen\n",
     "    layer.trainable = False\n",
     "\n",
     "inputs = keras.Input(shape=(224, 224, 3))\n",
@@ -430,6 +430,15 @@
     "\n",
     "optimizer = keras.optimizers.Adam(learning_rate=1e-5)\n",
     "\n",
+    "# Add scheduler\n",
+    "lr_scheduler = keras.callbacks.ReduceLROnPlateau(\n",
+    "    monitor='val_accuracy',\n",
+    "    factor=0.25,                    # Reduce LR by 25% each time\n",
+    "    patience=1,                    # Wait 1 epoch before reducing\n",
+    "    min_lr=1e-7,                   # Don't go below this\n",
+    "    verbose=1\n",
+    ")\n",
+    "\n",
     "model.compile(\n",
     "    optimizer=optimizer,\n",
     "    loss=\"sparse_categorical_crossentropy\",\n",
@@ -441,19 +450,19 @@
   {
    "cell_type": "code",
    "execution_count": 7,
-   "id": "3532bd1d",
+   "id": "4efd7642",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2026-08-03T20:06:23.899764Z",
-     "iopub.status.busy": "2026-08-03T20:06:23.899497Z",
-     "iopub.status.idle": "2026-08-03T22:28:32.586715Z",
-     "shell.execute_reply": "2026-08-03T22:28:32.585555Z"
+     "iopub.execute_input": "2026-08-04T00:13:40.456825Z",
+     "iopub.status.busy": "2026-08-04T00:13:40.456198Z",
+     "iopub.status.idle": "2026-08-04T02:57:13.758005Z",
+     "shell.execute_reply": "2026-08-04T02:57:13.756798Z"
     },
     "papermill": {
-     "duration": 8529.083472,
-     "end_time": "2026-08-03T22:28:32.980191+00:00",
+     "duration": 9813.636934,
+     "end_time": "2026-08-04T02:57:14.088948+00:00",
      "exception": false,
-     "start_time": "2026-08-03T20:06:23.896719+00:00",
+     "start_time": "2026-08-04T00:13:40.452014+00:00",
      "status": "completed"
     },
     "tags": []
@@ -464,45 +473,51 @@
      "output_type": "stream",
      "text": [
       "Epoch 1/20\n",
-      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m418s\u001b[0m 999ms/step - accuracy: 0.1885 - loss: 2.6319 - val_accuracy: 0.2160 - val_loss: 2.3093\n",
+      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m533s\u001b[0m 1s/step - accuracy: 0.1693 - loss: 2.7887 - val_accuracy: 0.1601 - val_loss: 2.4482 - learning_rate: 1.0000e-05\n",
       "Epoch 2/20\n",
-      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m483s\u001b[0m 1s/step - accuracy: 0.2853 - loss: 2.1521 - val_accuracy: 0.2762 - val_loss: 2.1016\n",
+      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m492s\u001b[0m 1s/step - accuracy: 0.2610 - loss: 2.3042 - val_accuracy: 0.2436 - val_loss: 2.1802 - learning_rate: 1.0000e-05\n",
       "Epoch 3/20\n",
-      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m400s\u001b[0m 991ms/step - accuracy: 0.3509 - loss: 1.8790 - val_accuracy: 0.3696 - val_loss: 1.7994\n",
+      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m525s\u001b[0m 1s/step - accuracy: 0.3190 - loss: 2.0347 - val_accuracy: 0.3287 - val_loss: 1.8586 - learning_rate: 1.0000e-05\n",
       "Epoch 4/20\n",
-      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m433s\u001b[0m 1s/step - accuracy: 0.3941 - loss: 1.7222 - val_accuracy: 0.4280 - val_loss: 1.5639\n",
+      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m488s\u001b[0m 1s/step - accuracy: 0.3701 - loss: 1.8437 - val_accuracy: 0.3802 - val_loss: 1.6419 - learning_rate: 1.0000e-05\n",
       "Epoch 5/20\n",
-      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m396s\u001b[0m 981ms/step - accuracy: 0.4281 - loss: 1.5992 - val_accuracy: 0.4721 - val_loss: 1.4160\n",
+      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m482s\u001b[0m 1s/step - accuracy: 0.4175 - loss: 1.6887 - val_accuracy: 0.4283 - val_loss: 1.4988 - learning_rate: 1.0000e-05\n",
       "Epoch 6/20\n",
-      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m441s\u001b[0m 978ms/step - accuracy: 0.4614 - loss: 1.4960 - val_accuracy: 0.4888 - val_loss: 1.3409\n",
+      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m487s\u001b[0m 1s/step - accuracy: 0.4371 - loss: 1.5983 - val_accuracy: 0.4680 - val_loss: 1.4096 - learning_rate: 1.0000e-05\n",
       "Epoch 7/20\n",
-      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m412s\u001b[0m 1s/step - accuracy: 0.4817 - loss: 1.4257 - val_accuracy: 0.5130 - val_loss: 1.2922\n",
+      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m489s\u001b[0m 1s/step - accuracy: 0.4661 - loss: 1.5167 - val_accuracy: 0.4916 - val_loss: 1.3471 - learning_rate: 1.0000e-05\n",
       "Epoch 8/20\n",
-      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m410s\u001b[0m 1s/step - accuracy: 0.5092 - loss: 1.3479 - val_accuracy: 0.5295 - val_loss: 1.2593\n",
+      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m469s\u001b[0m 1s/step - accuracy: 0.4861 - loss: 1.4473 - val_accuracy: 0.5047 - val_loss: 1.3048 - learning_rate: 1.0000e-05\n",
       "Epoch 9/20\n",
-      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m449s\u001b[0m 1s/step - accuracy: 0.5300 - loss: 1.2880 - val_accuracy: 0.5397 - val_loss: 1.2276\n",
+      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m471s\u001b[0m 1s/step - accuracy: 0.5101 - loss: 1.3722 - val_accuracy: 0.5192 - val_loss: 1.2760 - learning_rate: 1.0000e-05\n",
       "Epoch 10/20\n",
-      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m413s\u001b[0m 1s/step - accuracy: 0.5407 - loss: 1.2447 - val_accuracy: 0.5438 - val_loss: 1.2108\n",
+      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m494s\u001b[0m 1s/step - accuracy: 0.5258 - loss: 1.3237 - val_accuracy: 0.5363 - val_loss: 1.2407 - learning_rate: 1.0000e-05\n",
       "Epoch 11/20\n",
-      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m415s\u001b[0m 1s/step - accuracy: 0.5647 - loss: 1.1866 - val_accuracy: 0.5500 - val_loss: 1.1923\n",
+      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m503s\u001b[0m 1s/step - accuracy: 0.5423 - loss: 1.2660 - val_accuracy: 0.5435 - val_loss: 1.2262 - learning_rate: 1.0000e-05\n",
       "Epoch 12/20\n",
-      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m445s\u001b[0m 1s/step - accuracy: 0.5791 - loss: 1.1477 - val_accuracy: 0.5509 - val_loss: 1.1831\n",
+      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 995ms/step - accuracy: 0.5524 - loss: 1.2310\n",
+      "Epoch 12: ReduceLROnPlateau reducing learning rate to 2.499999936844688e-06.\n",
+      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m484s\u001b[0m 1s/step - accuracy: 0.5594 - loss: 1.2163 - val_accuracy: 0.5400 - val_loss: 1.2056 - learning_rate: 1.0000e-05\n",
       "Epoch 13/20\n",
-      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m415s\u001b[0m 1s/step - accuracy: 0.5925 - loss: 1.0970 - val_accuracy: 0.5642 - val_loss: 1.1680\n",
+      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m469s\u001b[0m 1s/step - accuracy: 0.5764 - loss: 1.1652 - val_accuracy: 0.5484 - val_loss: 1.1967 - learning_rate: 2.5000e-06\n",
       "Epoch 14/20\n",
-      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m418s\u001b[0m 1s/step - accuracy: 0.6117 - loss: 1.0543 - val_accuracy: 0.5673 - val_loss: 1.1601\n",
+      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m489s\u001b[0m 1s/step - accuracy: 0.5792 - loss: 1.1636 - val_accuracy: 0.5546 - val_loss: 1.1894 - learning_rate: 2.5000e-06\n",
       "Epoch 15/20\n",
-      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m451s\u001b[0m 1s/step - accuracy: 0.6291 - loss: 1.0189 - val_accuracy: 0.5720 - val_loss: 1.1496\n",
+      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m489s\u001b[0m 1s/step - accuracy: 0.5832 - loss: 1.1533 - val_accuracy: 0.5593 - val_loss: 1.1868 - learning_rate: 2.5000e-06\n",
       "Epoch 16/20\n",
-      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m451s\u001b[0m 1s/step - accuracy: 0.6346 - loss: 0.9946 - val_accuracy: 0.5729 - val_loss: 1.1486\n",
+      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 1s/step - accuracy: 0.5774 - loss: 1.1609\n",
+      "Epoch 16: ReduceLROnPlateau reducing learning rate to 6.24999984211172e-07.\n",
+      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m487s\u001b[0m 1s/step - accuracy: 0.5848 - loss: 1.1434 - val_accuracy: 0.5571 - val_loss: 1.1809 - learning_rate: 2.5000e-06\n",
       "Epoch 17/20\n",
-      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m417s\u001b[0m 1s/step - accuracy: 0.6476 - loss: 0.9569 - val_accuracy: 0.5810 - val_loss: 1.1295\n",
+      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m497s\u001b[0m 1s/step - accuracy: 0.5930 - loss: 1.1194 - val_accuracy: 0.5596 - val_loss: 1.1809 - learning_rate: 6.2500e-07\n",
       "Epoch 18/20\n",
-      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m408s\u001b[0m 1s/step - accuracy: 0.6712 - loss: 0.8983 - val_accuracy: 0.5872 - val_loss: 1.1257\n",
+      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m501s\u001b[0m 1s/step - accuracy: 0.5878 - loss: 1.1250 - val_accuracy: 0.5602 - val_loss: 1.1810 - learning_rate: 6.2500e-07\n",
       "Epoch 19/20\n",
-      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m437s\u001b[0m 1s/step - accuracy: 0.6799 - loss: 0.8704 - val_accuracy: 0.5940 - val_loss: 1.1255\n",
+      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m486s\u001b[0m 1s/step - accuracy: 0.5906 - loss: 1.1197 - val_accuracy: 0.5608 - val_loss: 1.1803 - learning_rate: 6.2500e-07\n",
       "Epoch 20/20\n",
-      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m416s\u001b[0m 1s/step - accuracy: 0.6922 - loss: 0.8442 - val_accuracy: 0.6002 - val_loss: 1.1198\n"
+      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m0s\u001b[0m 1s/step - accuracy: 0.5907 - loss: 1.1255\n",
+      "Epoch 20: ReduceLROnPlateau reducing learning rate to 1.56249996052793e-07.\n",
+      "\u001b[1m403/403\u001b[0m \u001b[32m━━━━━━━━━━━━━━━━━━━━\u001b[0m\u001b[37m\u001b[0m \u001b[1m480s\u001b[0m 1s/step - accuracy: 0.5947 - loss: 1.1143 - val_accuracy: 0.5596 - val_loss: 1.1792 - learning_rate: 6.2500e-07\n"
      ]
     }
    ],
@@ -514,26 +529,26 @@
     "history = model.fit(\n",
     "    train_ds,\n",
     "    validation_data=val_ds,\n",
-    "    epochs=20\n",
-    ")\n"
+    "    epochs=20,\n",
+    "    callbacks=[lr_scheduler])\n"
    ]
   },
   {
    "cell_type": "code",
    "execution_count": 8,
-   "id": "84149d77",
+   "id": "cf965877",
    "metadata": {
     "execution": {
-     "iopub.execute_input": "2026-08-03T22:28:33.580216Z",
-     "iopub.status.busy": "2026-08-03T22:28:33.579783Z",
-     "iopub.status.idle": "2026-08-03T22:28:34.120923Z",
-     "shell.execute_reply": "2026-08-03T22:28:34.119544Z"
+     "iopub.execute_input": "2026-08-04T02:57:14.845379Z",
+     "iopub.status.busy": "2026-08-04T02:57:14.844808Z",
+     "iopub.status.idle": "2026-08-04T02:57:15.583067Z",
+     "shell.execute_reply": "2026-08-04T02:57:15.582047Z"
     },
     "papermill": {
-     "duration": 0.844997,
-     "end_time": "2026-08-03T22:28:34.122948+00:00",
+     "duration": 1.114466,
+     "end_time": "2026-08-04T02:57:15.585315+00:00",
      "exception": false,
-     "start_time": "2026-08-03T22:28:33.277951+00:00",
+     "start_time": "2026-08-04T02:57:14.470849+00:00",
      "status": "completed"
     },
     "tags": []
@@ -578,14 +593,14 @@
   },
   "papermill": {
    "default_parameters": {},
-   "duration": 8556.790142,
-   "end_time": "2026-08-03T22:28:38.072997+00:00",
+   "duration": 9844.194409,
+   "end_time": "2026-08-04T02:57:19.358946+00:00",
    "environment_variables": {},
    "exception": null,
    "input_path": "__notebook__.ipynb",
    "output_path": "__notebook__.ipynb",
    "parameters": {},
-   "start_time": "2026-08-03T20:06:01.282855+00:00",
+   "start_time": "2026-08-04T00:13:15.164537+00:00",
    "version": "2.7.0"
   }
  },
